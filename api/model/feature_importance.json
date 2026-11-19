@@ -1,0 +1,72 @@
+[
+  {
+    "feature": "age",
+    "importance_mean": 0.10451306140768261,
+    "importance_std": 0.006750611272404868
+  },
+  {
+    "feature": "sysBP",
+    "importance_mean": 0.019319747174612135,
+    "importance_std": 0.004110268028453189
+  },
+  {
+    "feature": "cigsPerDay",
+    "importance_mean": 0.014471250054837315,
+    "importance_std": 0.001955824194991511
+  },
+  {
+    "feature": "male",
+    "importance_mean": 0.011611205037609929,
+    "importance_std": 0.002548122278785637
+  },
+  {
+    "feature": "totChol",
+    "importance_mean": 0.007691399144875122,
+    "importance_std": 0.001960029632598099
+  },
+  {
+    "feature": "BMI",
+    "importance_mean": 0.007020190260215798,
+    "importance_std": 0.001656628640148486
+  },
+  {
+    "feature": "glucose",
+    "importance_mean": 0.005005821193192728,
+    "importance_std": 0.0019275023309409322
+  },
+  {
+    "feature": "BPMeds",
+    "importance_mean": 0.002824544175263488,
+    "importance_std": 0.0007289608689911817
+  },
+  {
+    "feature": "prevalentStroke",
+    "importance_mean": 0.0018080457326435928,
+    "importance_std": 0.0008353698356213455
+  },
+  {
+    "feature": "prevalentHyp",
+    "importance_mean": 0.0011844187749510127,
+    "importance_std": 0.0010853666692514526
+  },
+  {
+    "feature": "diaBP",
+    "importance_mean": 0.0011266455416409805,
+    "importance_std": 0.0008778894801542061
+  },
+  {
+    "feature": "heartRate",
+    "importance_mean": 0.0006333458193709118,
+    "importance_std": 0.0005048721071981422
+  },
+  {
+    "feature": "currentSmoker",
+    "importance_mean": 0.00040785473001476725,
+    "importance_std": 0.0005326956606875332
+  },
+  {
+    "feature": "diabetes",
+    "importance_mean": 0.00020848308141907523,
+    "importance_std": 0.0004625392813268796
+  }
+]

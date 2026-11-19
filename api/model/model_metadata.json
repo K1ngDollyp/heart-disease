@@ -1,0 +1,320 @@
+{
+  "model_name": "Calibrated Logistic Regression (Framingham CHD Risk)",
+  "model_type": "LogisticRegression + CalibratedClassifierCV(sigmoid)",
+  "target": "TenYearCHD",
+  "target_description": "Binary 10-year risk of developing Coronary Heart Disease (~15% positive prevalence)",
+  "features": [
+    "male",
+    "age",
+    "currentSmoker",
+    "cigsPerDay",
+    "BPMeds",
+    "prevalentStroke",
+    "prevalentHyp",
+    "diabetes",
+    "totChol",
+    "sysBP",
+    "diaBP",
+    "BMI",
+    "heartRate",
+    "glucose"
+  ],
+  "valid_ranges": {
+    "age": {
+      "min": 30,
+      "max": 80,
+      "type": "int",
+      "unit": "years",
+      "description": "Patient age in years"
+    },
+    "male": {
+      "min": 0,
+      "max": 1,
+      "type": "int",
+      "unit": "binary",
+      "description": "Sex at birth (0=Female, 1=Male)"
+    },
+    "currentSmoker": {
+      "min": 0,
+      "max": 1,
+      "type": "int",
+      "unit": "binary",
+      "description": "Current smoking status"
+    },
+    "cigsPerDay": {
+      "min": 0,
+      "max": 80,
+      "type": "float",
+      "unit": "cigarettes/day",
+      "description": "Average number of cigarettes smoked per day"
+    },
+    "BPMeds": {
+      "min": 0,
+      "max": 1,
+      "type": "float",
+      "unit": "binary",
+      "description": "Currently taking blood pressure medication"
+    },
+    "prevalentStroke": {
+      "min": 0,
+      "max": 1,
+      "type": "int",
+      "unit": "binary",
+      "description": "Prior history of stroke"
+    },
+    "prevalentHyp": {
+      "min": 0,
+      "max": 1,
+      "type": "int",
+      "unit": "binary",
+      "description": "Prevalent hypertension diagnosis"
+    },
+    "diabetes": {
+      "min": 0,
+      "max": 1,
+      "type": "int",
+      "unit": "binary",
+      "description": "Diagnosis of diabetes mellitus"
+    },
+    "totChol": {
+      "min": 100,
+      "max": 700,
+      "type": "float",
+      "unit": "mg/dL",
+      "description": "Total serum cholesterol"
+    },
+    "sysBP": {
+      "min": 80,
+      "max": 300,
+      "type": "float",
+      "unit": "mmHg",
+      "description": "Systolic blood pressure"
+    },
+    "diaBP": {
+      "min": 40,
+      "max": 160,
+      "type": "float",
+      "unit": "mmHg",
+      "description": "Diastolic blood pressure"
+    },
+    "BMI": {
+      "min": 12.0,
+      "max": 60.0,
+      "type": "float",
+      "unit": "kg/m^2",
+      "description": "Body Mass Index"
+    },
+    "heartRate": {
+      "min": 40,
+      "max": 200,
+      "type": "float",
+      "unit": "bpm",
+      "description": "Heart rate in beats per minute"
+    },
+    "glucose": {
+      "min": 40,
+      "max": 500,
+      "type": "float",
+      "unit": "mg/dL",
+      "description": "Fasting blood glucose level"
+    }
+  },
+  "risk_levels": {
+    "low": {
+      "max": 0.1,
+      "label": "Low Risk (<10%)",
+      "color": "#10b981"
+    },
+    "moderate": {
+      "min": 0.1,
+      "max": 0.2,
+      "label": "Moderate / Borderline Risk (10-20%)",
+      "color": "#f59e0b"
+    },
+    "high": {
+      "min": 0.2,
+      "label": "High Risk (>=20%)",
+      "color": "#ef4444"
+    }
+  },
+  "decision_threshold": 0.12,
+  "threshold_tuning_metric": "Maximized F2 score on 5-fold CV out-of-fold predictions to optimize sensitivity/recall in screening",
+  "training_date": "2026-11-05T10:53:53.143325",
+  "random_state": 42,
+  "library_versions": {
+    "scikit-learn": "1.8.0",
+    "joblib": "1.5.3",
+    "xgboost": "3.4.1",
+    "lightgbm": "4.7.0",
+    "numpy": "2.3.5",
+    "pandas": "3.0.2"
+  },
+  "cross_validation_results": {
+    "DummyBaseline": {
+      "roc_auc": {
+        "mean": 0.5,
+        "std": 0.0
+      },
+      "pr_auc": {
+        "mean": 0.15182790934090998,
+        "std": 0.00010960828370138537
+      },
+      "precision": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "recall": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "f1": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "f2": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "brier": {
+        "mean": 0.128776202046709,
+        "std": 7.63223509008152e-05
+      }
+    },
+    "LogisticRegression": {
+      "roc_auc": {
+        "mean": 0.7368900966183575,
+        "std": 0.029579308737194228
+      },
+      "pr_auc": {
+        "mean": 0.3597061182500614,
+        "std": 0.03349542751266323
+      },
+      "precision": {
+        "mean": 0.2786303541907948,
+        "std": 0.024610805500643693
+      },
+      "recall": {
+        "mean": 0.6873786407766991,
+        "std": 0.03440785465372688
+      },
+      "f1": {
+        "mean": 0.3962386719368617,
+        "std": 0.029534041928550157
+      },
+      "f2": {
+        "mean": 0.5310060833952465,
+        "std": 0.03229266819968803
+      },
+      "brier": {
+        "mean": 0.2066737145946027,
+        "std": 0.010988723506218843
+      }
+    },
+    "RandomForest": {
+      "roc_auc": {
+        "mean": 0.7183085162515829,
+        "std": 0.03148253206057891
+      },
+      "pr_auc": {
+        "mean": 0.3413907168992754,
+        "std": 0.04935075360094708
+      },
+      "precision": {
+        "mean": 0.2724800997444203,
+        "std": 0.023006047071066644
+      },
+      "recall": {
+        "mean": 0.574757281553398,
+        "std": 0.041373350976043735
+      },
+      "f1": {
+        "mean": 0.36959425727487805,
+        "std": 0.02916696427432107
+      },
+      "f2": {
+        "mean": 0.4702574763758281,
+        "std": 0.035091280326216175
+      },
+      "brier": {
+        "mean": 0.1976699942345877,
+        "std": 0.006333366095264533
+      }
+    },
+    "XGBoost": {
+      "roc_auc": {
+        "mean": 0.7171523996294733,
+        "std": 0.032858808288560276
+      },
+      "pr_auc": {
+        "mean": 0.3388522504551379,
+        "std": 0.041218199225299644
+      },
+      "precision": {
+        "mean": 0.25982797496055604,
+        "std": 0.016406706427962575
+      },
+      "recall": {
+        "mean": 0.6485436893203884,
+        "std": 0.04811460851791795
+      },
+      "f1": {
+        "mean": 0.37082873470374283,
+        "std": 0.02332486528358785
+      },
+      "f2": {
+        "mean": 0.49888983874740134,
+        "std": 0.03298727998391688
+      },
+      "brier": {
+        "mean": 0.20236397981643678,
+        "std": 0.007889678044777453
+      }
+    },
+    "LightGBM": {
+      "roc_auc": {
+        "mean": 0.7142723078185826,
+        "std": 0.03256497758663774
+      },
+      "pr_auc": {
+        "mean": 0.3377924064813385,
+        "std": 0.04763154401621261
+      },
+      "precision": {
+        "mean": 0.257050479848826,
+        "std": 0.01769937413566946
+      },
+      "recall": {
+        "mean": 0.6388349514563108,
+        "std": 0.0465209652454794
+      },
+      "f1": {
+        "mean": 0.3664090394266128,
+        "std": 0.024372802038647057
+      },
+      "f2": {
+        "mean": 0.4922403659368917,
+        "std": 0.03311404443892426
+      },
+      "brier": {
+        "mean": 0.20193792458445547,
+        "std": 0.00852833419289867
+      }
+    }
+  },
+  "test_metrics": {
+    "roc_auc": 0.6925,
+    "pr_auc": 0.2823,
+    "brier_score": 0.1224,
+    "recall": 0.7054,
+    "precision": 0.2247,
+    "f1_score": 0.3408,
+    "f2_score": 0.494,
+    "confusion_matrix": {
+      "true_negative": 405,
+      "false_positive": 314,
+      "false_negative": 38,
+      "true_positive": 91
+    }
+  },
+  "model_selection_reason": "Logistic Regression achieved CV ROC-AUC 0.7369 (comparable to ensembles: RF 0.7183, XGB 0.7172, LGBM 0.7143 within statistical variance). Logistic Regression offers direct clinical interpretability (odds ratios), zero risk of piecewise step-function anomalies, and superior numerical stability for clinical risk estimation."
+}
